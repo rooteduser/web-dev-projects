@@ -84,6 +84,6 @@ for(let i = 0; i < interestInputvalue.length; i++){
         const t = parseInt(interestInputvalue[2].value);
 
         const text = document.querySelector(".interest-display p");
-        text.textContent = `The Simple Interest rate is: ${(p*r*t)/100}%`;
+        text.textContent = `The Simple Interest rate is: ${(p*r*t)/100}`;
     });
 }
