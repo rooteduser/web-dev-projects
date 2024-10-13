@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     background: #ffffff;
     flex-direction: column;
-    font-family: "DM Sans", sans-serif;
+    font-family: sans-serif;
 }
 
 .main {
@@ -36,7 +36,6 @@ body {
     font-weight: 600;
     color: #4169e1;
 }
-
 .custom-wrapper {
     margin: 0;
     width: 70%;
@@ -94,9 +93,6 @@ input::-webkit-inner-spin-button {
 
 .slider-container {
     width: 100%;
-}
-
-.slider-container {
     height: 6px;
     position: relative;
     background: #e4e4e4;
@@ -137,6 +133,41 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
 }
 
+.simple-interest{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap:10px;
+}
+
+.simple-interest input{    
+    height: 35px;
+    font-size: 14px;
+    border-radius: 9px;
+    text-align: center;
+    border: 0px;
+    width: 150px;
+    background: #e4e4e4;
+}
+
+.simple-interest .int-item{
+    text-align: center;
+}
+
+.interest-display{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;  
+    font-size: 24px;
+    color: #4169e1;    
+}
+
+.interest-display p{
+    font-weight: 600;
+}   
+
+
+
 @media screen and (max-width: 768px) {
     .main {
         width: 80%;
@@ -162,5 +193,9 @@ input[type="range"]::-webkit-slider-thumb {
 
     .price-field {
         margin-bottom: 10px;
+    }
+    .simple-interest{
+        width: 100%;
+        padding: 0 10px;
     }
 }

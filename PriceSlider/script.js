@@ -8,6 +8,9 @@ const priceGap = 300;
 //Event listeners to the price input elements
 const priceInputvalue = document.querySelectorAll(".price-input input");
 
+//interest variables
+const interestInputvalue = document.querySelectorAll(".simple-interest input");
+
 for(let i = 0; i < priceInputvalue.length; i++){
     priceInputvalue[i].addEventListener("input", e => {
         let minp = parseInt(priceInputvalue[0].value); //string to int
@@ -49,28 +52,38 @@ for(let i = 0; i < priceInputvalue.length; i++){
             }
         }
     });
-    for(let i = 0; i < rangeInputvalue.length; i++){
-        rangeInputvalue[i].addEventListener("input", e => {
-            let minVal = parseInt(rangeInputvalue[0].value);
-            let maxVal = parseInt(rangeInputvalue[1].value);
-            let diff = maxVal - minVal;
+}
+for(let i = 0; i < rangeInputvalue.length; i++){
+    rangeInputvalue[i].addEventListener("input", e => {
+        let minVal = parseInt(rangeInputvalue[0].value);
+        let maxVal = parseInt(rangeInputvalue[1].value);
+        let diff = maxVal - minVal;
 
-            //Checking the Difference
-            if(diff < priceGap){
-                if(e.target.className === "min-range"){
-                    rangeInputvalue[0].value = maxVal - priceGap;
-                }
-                else{
-                    rangeInputvalue[1].value = minVal + priceGap;
-                }
+        //Checking the Difference
+        if(diff < priceGap){
+            if(e.target.className === "min-range"){
+                rangeInputvalue[0].value = maxVal - priceGap;
             }
             else{
-                //Update priceinput
-                priceInputvalue[0].value = minVal; 
-                priceInputvalue[1].value = maxVal;
-                rangevalue.style.left = `${(minVal / rangeInputvalue[0].max) * 100}%`; 
-                rangevalue.style.right = `${100 - (maxVal / rangeInputvalue[1].max) * 100}%`; 
+                rangeInputvalue[1].value = minVal + priceGap;
             }
-        });
-    }
+        }
+        else{
+            //Update priceinput
+            priceInputvalue[0].value = minVal; 
+            priceInputvalue[1].value = maxVal;
+            rangevalue.style.left = `${(minVal / rangeInputvalue[0].max) * 100}%`; 
+            rangevalue.style.right = `${100 - (maxVal / rangeInputvalue[1].max) * 100}%`; 
+        }
+    });
+}
+for(let i = 0; i < interestInputvalue.length; i++){
+    interestInputvalue[i].addEventListener("input",e => {
+        const p = parseInt(interestInputvalue[0].value);
+        const r = parseInt(interestInputvalue[1].value);
+        const t = parseInt(interestInputvalue[2].value);
+
+        const text = document.querySelector(".interest-display p");
+        text.textContent = `The Simple Interest rate is: ${(p*r*t)/100}%`;
+    });
 }
